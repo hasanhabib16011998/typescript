@@ -104,6 +104,21 @@ value = "Hello";  // Valid
 value = 42;       // Valid
 ```
 
+
+```ts
+// Type annotation for a union type
+let union: boolean | number;
+// OK: number
+union = 5;
+// OK: boolean
+union = true;
+// Error: Type "string" is not assignable to type 'number | boolean'
+union = 'string';
+// Type alias for a union type
+type StringOrError = string | Error;
+// Type alias for union of many types
+type SeriesOfTypes = string | number | boolean | Error;
+```
 ---
 
 ### **h) Intersection Types**
@@ -128,6 +143,16 @@ mode = "dark";  // Valid
 // mode = "blue"; // Error
 ```
 
+```ts
+type Kingdom = 'Bacteria' | 'Protozoa' | 'Chromista' | 'Plantae' | 'Fungi' | 'Animalia';
+let kingdom: Kingdom;
+// OK
+kingdom = 'Bacteria';
+// Error: Type 'Protista' is not assignable to type 'Kingdom'
+kingdom = 'Protista';
+```
+Literal types are really just union types made up of specific values, so you can also create a number
+literal type, or a union/literal hybrid type using the same syntax.
 ---
 
 ### **j) Function Types**
