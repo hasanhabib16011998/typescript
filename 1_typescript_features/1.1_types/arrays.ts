@@ -11,10 +11,10 @@ interface Total {
     total: number;
 }
 
-const totalScores: Total[] = [];
+let totalScores: Total[] = [];
 let rank: number = 1;
 
-const scores: Score[] = [
+let scores: Score[] = [
     { name: 'Hasan', subject: 'Jenkins', number: 45 },
     { name: 'Habib', subject: 'Jenkins', number: 56 },
     { name: 'Hasan', subject: 'AWS', number: 97 },
@@ -37,7 +37,7 @@ function getTotalScore(studentName: string, scores: Score[]): number {
 }
 
 // Get unique student names
-const studentNames = [...new Set(scores.map(score => score.name))];
+let studentNames = [...new Set(scores.map(score => score.name))];
 
 // Loop through all students and print their total scores
 for (const student of studentNames) {
@@ -56,3 +56,5 @@ for (const totalScore of totalScores) {
     console.log(`Total Score of ${totalScore.name}: ${totalScore.total} (${rank})`);
     rank++;
 }
+
+export{};
